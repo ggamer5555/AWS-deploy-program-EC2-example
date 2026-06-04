@@ -362,6 +362,10 @@ Run it:
 python .\launch_with_ssh.py
 ```
 
+
+<img width="708" height="512" alt="image" src="https://github.com/user-attachments/assets/22822460-9830-41b5-ac41-362291011b1e" />
+
+
 Useful variables:
 
 | Variable | Meaning |
