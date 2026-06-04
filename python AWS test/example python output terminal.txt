@@ -1,0 +1,203 @@
+Compiling Linux binary with WSL: C:\C++ learning\python AWS test\build\binance_klines_collector
+/mnt/c/C++ learning/python AWS test/build/binance_klines_collector: ELF 64-bit LSB pie executable, x86-64, version 1 (GNU/Linux), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=0018952a38ce0fa73c3a372a12923cc06d758b58, for GNU/Linux 3.2.0, stripped
+Using hardcoded AWS credentials from deploy_binance_collector_to_ec2.py
+Uploading artifact to s3://ec2-linux-program-deploy-465846579043-eu-west-2/ec2-program-binaries/3f9db086-0e03-49bb-8854-9573f78fe70d-binance_klines_collector
+Using existing SSH key pair: binance-collector-key
+SSH from 2.222.125.112/32 already allowed on sg-02fa54b62ef57d46f
+Launching EC2 instance
+  region: eu-west-2
+  ami: ami-0067591671617d74c
+  instance type: t2.nano
+  subnet: subnet-0457dee723cae06fa
+  security group: sg-02fa54b62ef57d46f
+  ssh key pair: binance-collector-key
+  ssh private key: C:\C++ learning\python AWS test\keys\binance-collector-key.pem
+  upload: s3://ec2-linux-program-deploy-465846579043-eu-west-2/ec2-program-binaries/3f9db086-0e03-49bb-8854-9573f78fe70d-binance_klines_collector
+Started instance: i-039ad9734a7420255
+Waiting for instance to run: i-039ad9734a7420255
+Instance is running.
+  instance id: i-039ad9734a7420255
+  public ip: 16.60.13.41
+  private ip: 172.31.2.222
+  service: binance-collector.service
+
+The first-boot script is still installing/running in the background.
+On the instance, logs are written to:
+  /var/log/binance-collector-bootstrap.log
+  journalctl -u binance-collector -f
+
+SSH is enabled. Connect with:
+  & 'ssh' '-i' 'C:\C++ learning\python AWS test\keys\binance-collector-key.pem' '-o' 'StrictHostKeyChecking=accept-new' '-o' 'UserKnownHostsFile=C:\Users\Ggjoj\.ssh\binance_collector_known_hosts' 'ubuntu@16.60.13.41'
+Waiting for SSH on 16.60.13.41:22
+SSH port is open.
+SSH command:
+  & 'ssh' '-i' 'C:\C++ learning\python AWS test\keys\binance-collector-key.pem' '-o' 'StrictHostKeyChecking=accept-new' '-o' 'UserKnownHostsFile=C:\Users\Ggjoj\.ssh\binance_collector_known_hosts' 'ubuntu@16.60.13.41'
+
+Fetching bootstrap logs until setup finishes.
+Warning: Permanently added '16.60.13.41' (ED25519) to the list of known hosts.
+Hit:1 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:3 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:5 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+Get:6 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/universe Translation-en [5652 kB]
+Get:7 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+Get:8 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+Get:9 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+Get:10 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8372 B]
+Get:11 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3564 kB]
+Get:12 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [534 kB]
+Get:13 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [19.9 kB]
+Get:14 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [6082 kB]
+Get:15 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3265 kB]
+Get:16 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [460 kB]
+Get:17 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [14.4 kB]
+Get:18 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5819 kB]
+Get:19 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [1161 kB]
+Get:20 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 c-n-f Metadata [584 B]
+Get:21 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1273 kB]
+Get:22 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [318 kB]
+Get:23 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [30.6 kB]
+Get:24 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [71.6 kB]
+Get:25 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [15.5 kB]
+Get:26 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [756 B]
+Get:27 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [70.2 kB]
+Get:28 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [11.4 kB]
+Get:29 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [412 B]
+Get:30 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:31 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [30.8 kB]
+Get:32 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16.9 kB]
+Get:33 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [676 B]
+Get:34 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+Get:35 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [1113 kB]
+Get:36 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 c-n-f Metadata [600 B]
+Get:37 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1035 kB]
+Get:38 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [229 kB]
+Get:39 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [22.9 kB]
+Get:40 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [64.3 kB]
+Get:41 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [12.6 kB]
+Get:42 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [544 B]
+Fetched 46.0 MB in 10s (4729 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ca-certificates is already the newest version (20240203~22.04.1).
+ca-certificates set to manually installed.
+curl is already the newest version (7.81.0-1ubuntu1.24).
+curl set to manually installed.
+libcurl4 is already the newest version (7.81.0-1ubuntu1.24).
+libcurl4 set to manually installed.
+libssl3 is already the newest version (3.0.2-0ubuntu1.23).
+libssl3 set to manually installed.
+The following NEW packages will be installed:
+  libboost-system1.74.0 libpugixml1v5 libzip4
+0 upgraded, 3 newly installed, 0 to remove and 5 not upgraded.
+Need to get 367 kB of archives.
+After this operation, 2537 kB of additional disk space will be used.
+Get:1 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libboost-system1.74.0 amd64 1.74.0-14ubuntu3 [221 kB]
+Get:2 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 libpugixml1v5 amd64 1.12.1-1 [91.7 kB]
+Get:3 http://eu-west-2.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 libzip4 amd64 1.7.3-1ubuntu2 [55.0 kB]
+Fetched 367 kB in 0s (5396 kB/s)
+Selecting previously unselected package libboost-system1.74.0:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 66037 files and directories currently installed.)
+Preparing to unpack .../libboost-system1.74.0_1.74.0-14ubuntu3_amd64.deb ...
+Unpacking libboost-system1.74.0:amd64 (1.74.0-14ubuntu3) ...
+Selecting previously unselected package libpugixml1v5:amd64.
+Preparing to unpack .../libpugixml1v5_1.12.1-1_amd64.deb ...
+Unpacking libpugixml1v5:amd64 (1.12.1-1) ...
+Selecting previously unselected package libzip4:amd64.
+Preparing to unpack .../libzip4_1.7.3-1ubuntu2_amd64.deb ...
+Unpacking libzip4:amd64 (1.7.3-1ubuntu2) ...
+Setting up libboost-system1.74.0:amd64 (1.74.0-14ubuntu3) ...
+Setting up libzip4:amd64 (1.7.3-1ubuntu2) ...
+Setting up libpugixml1v5:amd64 (1.12.1-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.13) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Downloading collector binary
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 1035k  100 1035k    0     0  5677k      0 --:--:-- --:--:-- --:--:-- 5689k
+Created symlink /etc/systemd/system/multi-user.target.wants/binance-collector.service → /etc/systemd/system/binance-collector.service.
+● binance-collector.service - Binance C++ collector
+     Loaded: loaded (/etc/systemd/system/binance-collector.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2026-06-04 20:03:13 UTC; 13ms ago
+   Main PID: 1814 (binance_klines_)
+      Tasks: 1 (limit: 519)
+     Memory: 368.0K
+        CPU: 1ms
+     CGroup: /system.slice/binance-collector.service
+             └─1814 /opt/binance-collector/binance_klines_collector
+
+Jun 04 20:03:13 ip-172-31-2-222 systemd[1]: Started Binance C++ collector.
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.601Z [WARNING] [129507082852928] [SIGNALS] SIGINT/SIGTERM are ignored in this never-stop build. Use Task Manager, Stop-Process, closing the terminal, or kill the process to end it.
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.602Z [INFO] [129507082852928] [LIVE DELAY CSV] writing to data_dump/logs/live_symbol_delays_microseconds_batched.csv
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.603Z [INFO] [129507082852928] Starting C++ Binance klines collector run_mode=2
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.603Z [INFO] [129507082852928] [REST RATE LIMIT] enabled=true max_weight_per_minute=1000 spread_requests=false
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.603Z [INFO] [129507082852928] [REST LOOKBACK] rows=2997 max_chunks_per_symbol=3 rest_limit=999 only_missing_from_disk=true
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.603Z [INFO] [129507082852928] [SYMBOLS spot] using predefined bulk=1 live/rest=1
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS um] using predefined bulk=0 live/rest=0
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS cm] using predefined bulk=0 live/rest=0
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS] saved 1 -> data_dump/symbols_output/spot_bulk_symbols.txt
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS] saved 0 -> data_dump/symbols_output/um_bulk_symbols.txt
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS] saved 0 -> data_dump/symbols_output/cm_bulk_symbols.txt
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS] saved 1 -> data_dump/symbols_output/spot_live_rest_symbols.txt
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS] saved 0 -> data_dump/symbols_output/um_live_rest_symbols.txt
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS] saved 0 -> data_dump/symbols_output/cm_live_rest_symbols.txt
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS] saved 0 -> data_dump/symbols_output/combined_futures_bulk_symbols.txt
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [SYMBOLS] saved 0 -> data_dump/symbols_output/combined_futures_live_rest_symbols.txt
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [INFO] [129507082852928] [LIVE] spot stream enabled: symbols=1 multiplex_connections=1 max_symbols_per_stream=100
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [WARNING] [129507082852928] [LIVE] um stream disabled: no symbols configured in its live/rest symbol list
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.604Z [WARNING] [129507082852928] [LIVE] cm stream disabled: no symbols configured in its live/rest symbol list
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.605Z [INFO] [129507082852928] [LIVE] started 1 multiplex connections and 1 processing workers queue_max=100000 bin_batch_us=1000 bin_writers=1 disabled_markets=um cm
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.605Z [INFO] [129507079427648] [LIVE BIN WRITER 0] started batch_flush_us=1000 force_flush_rows=50000 ready_batch_queue_max=1
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.605Z [INFO] [129507062642240] [LIVE WORKER 0] started
+Jun 04 20:03:13 ip-172-31-2-222 binance_klines_collector[1814]: 2026-06-04T20:03:13.605Z [INFO] [129507054249536] [LIVE spot BTCUSDT..BTCUSDT n=1] connecting base=wss://stream.binance.com:443/stream?streams=
+BOOTSTRAP_DONE
+
+Printing latest .bin row every 10 seconds. Press Ctrl+C to stop.
+Watching latest .bin row under /opt/binance-collector/data_dump every 10s
+No .bin files found yet.
+No .bin files found yet.
+No .bin files found yet.
+No .bin files found yet.
+No .bin files found yet.
+2026-06-04T20:04:04.846850+00:00 latest NEW rows=1 file=/opt/binance-collector/data_dump/daily_bin/spot/BTCUSDT/BTCUSDT_spot_1m_2026-06-04.bin open=2026-06-04T20:03:00+00:00 symbol=BTCUSDT O=63504.01 H=63526.0 L=63479.39 C=63479.39 V=15.5995 trades=4043
+2026-06-04T20:04:14.847841+00:00 latest rows=1 file=/opt/binance-collector/data_dump/daily_bin/spot/BTCUSDT/BTCUSDT_spot_1m_2026-06-04.bin open=2026-06-04T20:03:00+00:00 symbol=BTCUSDT O=63504.01 H=63526.0 L=63479.39 C=63479.39 V=15.5995 trades=4043
+2026-06-04T20:04:24.848865+00:00 latest rows=1 file=/opt/binance-collector/data_dump/daily_bin/spot/BTCUSDT/BTCUSDT_spot_1m_2026-06-04.bin open=2026-06-04T20:03:00+00:00 symbol=BTCUSDT O=63504.01 H=63526.0 L=63479.39 C=63479.39 V=15.5995 trades=4043
+2026-06-04T20:04:34.849325+00:00 latest rows=1 file=/opt/binance-collector/data_dump/daily_bin/spot/BTCUSDT/BTCUSDT_spot_1m_2026-06-04.bin open=2026-06-04T20:03:00+00:00 symbol=BTCUSDT O=63504.01 H=63526.0 L=63479.39 C=63479.39 V=15.5995 trades=4043
+2026-06-04T20:04:44.850733+00:00 latest rows=1 file=/opt/binance-collector/data_dump/daily_bin/spot/BTCUSDT/BTCUSDT_spot_1m_2026-06-04.bin open=2026-06-04T20:03:00+00:00 symbol=BTCUSDT O=63504.01 H=63526.0 L=63479.39 C=63479.39 V=15.5995 trades=4043
+2026-06-04T20:04:54.851324+00:00 latest rows=1 file=/opt/binance-collector/data_dump/daily_bin/spot/BTCUSDT/BTCUSDT_spot_1m_2026-06-04.bin open=2026-06-04T20:03:00+00:00 symbol=BTCUSDT O=63504.01 H=63526.0 L=63479.39 C=63479.39 V=15.5995 trades=4043
+2026-06-04T20:05:04.852509+00:00 latest NEW rows=2 file=/opt/binance-collector/data_dump/daily_bin/spot/BTCUSDT/BTCUSDT_spot_1m_2026-06-04.bin open=2026-06-04T20:04:00+00:00 symbol=BTCUSDT O=63479.4 H=63479.4 L=63377.8 C=63393.08 V=27.09771 trades=6562
