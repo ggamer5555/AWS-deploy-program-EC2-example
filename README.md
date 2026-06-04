@@ -2,6 +2,10 @@
 
 Build a C++20 Binance kline collector as a Linux binary, launch an Ubuntu EC2 instance, run the collector as a `systemd` service, stream setup logs, and then print the latest row written to the collector `.bin` files.
 
+<img width="1899" height="831" alt="image" src="https://github.com/user-attachments/assets/d680766e-f9d9-4661-bd73-71173f9f84f8" />
+
+
+
 The main entry point is:
 
 ```powershell
